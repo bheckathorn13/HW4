@@ -61,7 +61,7 @@ void insertion_sort(int *numbers, unsigned count) {
 static int comparator(const void *a, const void *b) {
 	const int *a2 = (const int*) a;
 	const int *b2 = (const int*) b;
-	return *a2 - *b2;
+	return compare(*a2, *b2);
 }
 
 void third_sort(int *numbers, unsigned count) {
