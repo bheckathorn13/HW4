@@ -57,5 +57,15 @@ void insertion_sort(int *numbers, unsigned count) {
 	memcpy(numbers, new, count*sizeof(int));
 }
 
-sorting_fn sorting_fns[] = {bubble_sort, insertion_sort, NULL};
+//Wrapper function for third_sort
+static int comparator(const void *a, const void *b) {
+	const int *a2 = (const int*) a;
+	const int *b2 = (const int*) b;
+	return *a2 - *b2;
+}
 
+void third_sort(int *numbers, unsigned count) {
+	qsort(numbers, count, sizeof(int), comparator);
+}
+
+sorting_fn sorting_fns[] = {bubble_sort, insertion_sort, third_sort, NULL};
